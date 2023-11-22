@@ -1,0 +1,98 @@
+﻿<Window x:Class="Register_Page.WindowFolder.MenagerBaseWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Register_Page.WindowFolder"
+                       xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        Height="720" Width="1080" WindowStartupLocation="CenterScreen" AllowsTransparency="True"
+        Background="Transparent" WindowStyle="None" MouseLeftButtonDown="Window_MouseLeftButtonDown" Title="MenagerWindow">
+
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BoolToVis" />
+    </Window.Resources>
+
+    <Border CornerRadius="00" Background="#EFF2F7" MouseDown="Border_MouseDown" MouseLeftButtonDown="Border_MouseLeftButtonDown_2">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!--Left Menu-->
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <!--Menu Icon-->
+                <Button Style="{StaticResource topButton}" HorizontalAlignment="Left" Margin="20 28 0 35">
+                    <Icon:PackIconMaterial Kind="Menu" Width="15" Height="15" />
+                </Button>
+
+                <Border Grid.Row="1" Background="Orange" CornerRadius="0 30 0 00">
+                    <DockPanel>
+                        <!--Menu Logo-->
+
+
+                        <!--Menu Titles-->
+                        <TextBlock Text="Автосервис" Foreground="White" FontSize="22" FontWeight="SemiBold" DockPanel.Dock="Top" Margin="5 25 0 10" TextAlignment="Center"/>
+                        <TextBlock Text="Менеджер" Foreground="White" FontSize="14" FontWeight="SemiBold" DockPanel.Dock="Top" TextAlignment="Center"/>
+
+                        <!--Menu Seprator-->
+                        <Separator Margin="25" Background="Yellow" DockPanel.Dock="Top" Height="0.8"/>
+
+                        <!--Menu Buttons-->
+                        <StackPanel DockPanel.Dock="Top" x:Name="BorderButtonSP">
+                            <Button Style="{StaticResource menuButton}" Click="Button_Click">
+                                <StackPanel Orientation="Horizontal">
+                                    <Icon:PackIconMaterial Kind="car" Style="{StaticResource menuButtonIcon}"/>
+                                    <TextBlock Text="Авто" />
+                                </StackPanel>
+                            </Button>
+
+                            <Button Style="{StaticResource menuButton}" Click="Button_Click_1">
+                                <StackPanel Orientation="Horizontal">
+                                    <Icon:PackIconMaterial Kind="HumanQueue" Style="{StaticResource menuButtonIcon}"/>
+                                    <TextBlock Text="Клиенты"/>
+                                </StackPanel>
+                            </Button>
+
+                            <Button Style="{StaticResource menuButton}"  Foreground="White" Click="Button_Click_2">
+                                <StackPanel Orientation="Horizontal">
+                                    <Icon:PackIconMaterial Kind="Basket" Style="{StaticResource menuButtonIcon}"/>
+                                    <TextBlock Text="Заказы"/>
+                                </StackPanel>
+                            </Button>
+
+
+                        </StackPanel>
+
+                        <Button Style="{StaticResource menuButton}" VerticalAlignment="Bottom" DockPanel.Dock="Bottom" Margin="15 0 15 20" Click="Button_Click_3">
+                            <StackPanel Orientation="Horizontal">
+                                <Icon:PackIconMaterial Kind="Logout" Style="{StaticResource menuButtonIcon}"/>
+                                <TextBlock Text="Выйти"/>
+                            </StackPanel>
+                        </Button>
+
+                    </DockPanel>
+                </Border>
+                <Image HorizontalAlignment="Left" Height="79" Margin="10,10,0,10" VerticalAlignment="Top" Width="90" Source="/Images/img.png"/>
+
+            </Grid>
+
+            <Grid Grid.Column="1">
+                <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden">
+
+                </Frame>
+                <Frame x:Name="MainFrame2" NavigationUIVisibility="Hidden" Margin="100">
+
+                </Frame>
+            </Grid>
+
+            <!--Main Section-->
+
+        </Grid>
+    </Border>
+</Window>

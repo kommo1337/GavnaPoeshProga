@@ -1,0 +1,388 @@
+﻿<Window x:Class="Register_Page.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:fa="http://schemas.fontawesome.io/icons/"
+        xmlns:uc="clr-namespace:Register_Page.UserControls"
+        mc:Ignorable="d" Height="650" Width="1000" Background="Transparent" 
+        WindowStyle="None" WindowStartupLocation="CenterScreen" AllowsTransparency="True" Loaded="Window_Loaded" Title="Autorisation">
+    <Window.Resources>
+
+
+        <Storyboard x:Key="MainAnimation">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="border" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00.3000000" Value="650.667"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="border" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00.3000000" Value="-1.333"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="border1" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00.3000000" Value="-348"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="border1" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00.3000000" Value="-2"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="button" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00.5000000" Value="180"/>
+            </DoubleAnimationUsingKeyFrames>
+            <StringAnimationUsingKeyFrames Storyboard.TargetName="textBlock" Storyboard.TargetProperty="(TextBlock.Text)">
+                <DiscreteStringKeyFrame KeyTime="00:00:00.1000000" Value="Уже есть аккаунт?"/>
+            </StringAnimationUsingKeyFrames>
+            <StringAnimationUsingKeyFrames Storyboard.TargetName="textBlock1" Storyboard.TargetProperty="(TextBlock.Text)">
+                <DiscreteStringKeyFrame KeyTime="00:00:00.1000000" Value="Регистрация"/>
+            </StringAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="ReverseAnimation">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="border" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="648"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.3000000" Value="1.75"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="border" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="-1.5"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.3000000" Value="1.5"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="border1" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="-349.5"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.4000000" Value="1.5"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="button" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="180"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.4000000" Value="360"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="border1" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.4000000" Value="1.5"/>
+            </DoubleAnimationUsingKeyFrames>
+            <StringAnimationUsingKeyFrames Storyboard.TargetName="textBlock1" Storyboard.TargetProperty="(TextBlock.Text)">
+                <DiscreteStringKeyFrame KeyTime="00:00:00.1000000" Value="Авторизация"/>
+            </StringAnimationUsingKeyFrames>
+            <StringAnimationUsingKeyFrames Storyboard.TargetName="textBlock" Storyboard.TargetProperty="(TextBlock.Text)">
+                <DiscreteStringKeyFrame KeyTime="00:00:00.1000000" Value="Нету аккаунта?"/>
+            </StringAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="Gradient">
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="border" Storyboard.TargetProperty="(Border.Background).(GradientBrush.GradientStops)[0].(GradientStop.Color)">
+                <EasingColorKeyFrame KeyTime="00:00:02.1000000" Value="#FFF58055"/>
+                <EasingColorKeyFrame KeyTime="00:00:05.2000000" Value="#FFF74118"/>
+                <EasingColorKeyFrame KeyTime="00:00:07.7000000" Value="DarkOrange"/>
+                <EasingColorKeyFrame KeyTime="00:00:10" Value="#FFFF4600"/>
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="border" Storyboard.TargetProperty="(Border.Background).(GradientBrush.GradientStops)[1].(GradientStop.Color)">
+                <EasingColorKeyFrame KeyTime="00:00:02.1000000" Value="#FFDAFF00"/>
+                <EasingColorKeyFrame KeyTime="00:00:05.2000000" Value="#FF94FF00"/>
+                <EasingColorKeyFrame KeyTime="00:00:07.7000000" Value="#FFFDFF00"/>
+                <EasingColorKeyFrame KeyTime="00:00:10" Value="#FFFFD200"/>
+            </ColorAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="border" Storyboard.TargetProperty="(Border.Background).(GradientBrush.GradientStops)[1].(GradientStop.Offset)">
+                <EasingDoubleKeyFrame KeyTime="00:00:05.2000000" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:07.7000000" Value="0.992"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="Rect">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="roundedRectangle4" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)">
+                <EasingDoubleKeyFrame KeyTime="00:00:08" Value="-444"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:14" Value="-826"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:19.9000000" Value="-910"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="roundedRectangle4" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)">
+                <EasingDoubleKeyFrame KeyTime="00:00:08" Value="108"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:14" Value="196"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:19.9000000" Value="206"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="roundedRectangle4" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)">
+                <EasingDoubleKeyFrame KeyTime="00:00:08" Value="395.64"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:14" Value="740.405"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:19.9000000" Value="795.932"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="roundedRectangle3" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)">
+                <EasingDoubleKeyFrame KeyTime="00:00:08" Value="-200"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:14" Value="-128"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="roundedRectangle3" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)">
+                <EasingDoubleKeyFrame KeyTime="00:00:08" Value="-560"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:14" Value="-876"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="roundedRectangle3" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)">
+                <EasingDoubleKeyFrame KeyTime="00:00:08" Value="415.604"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:14" Value="809.454"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="roundedRectangle" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)">
+                <EasingDoubleKeyFrame KeyTime="00:00:08" Value="-516"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:14" Value="-888"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:19.9000000" Value="-1224"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="roundedRectangle" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)">
+                <EasingDoubleKeyFrame KeyTime="00:00:08" Value="-6"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:14" Value="-42"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:19.9000000" Value="110"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="roundedRectangle" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)">
+                <EasingDoubleKeyFrame KeyTime="00:00:08" Value="370.298"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:14" Value="663.216"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:19.9000000" Value="853.069"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="roundedRectangle5" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)">
+                <EasingDoubleKeyFrame KeyTime="00:00:08" Value="-662"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:14" Value="-932"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="roundedRectangle5" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)">
+                <EasingDoubleKeyFrame KeyTime="00:00:08" Value="-26"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:14" Value="42"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="roundedRectangle5" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)">
+                <EasingDoubleKeyFrame KeyTime="00:00:08" Value="382.844"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:14" Value="623.909"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="roundedRectangle2" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)">
+                <EasingDoubleKeyFrame KeyTime="00:00:08" Value="2"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:14.1000000" Value="18"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:19.9000000" Value="68"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="roundedRectangle2" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)">
+                <EasingDoubleKeyFrame KeyTime="00:00:08" Value="-516"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:14.1000000" Value="-922"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:19.9000000" Value="-1232"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="roundedRectangle2" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)">
+                <EasingDoubleKeyFrame KeyTime="00:00:08" Value="379.985"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:14.1000000" Value="636.195"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:19.9000000" Value="956.167"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="roundedRectangle6" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)">
+                <EasingDoubleKeyFrame KeyTime="00:00:14" Value="100"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:19.9000000" Value="16"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="roundedRectangle6" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)">
+                <EasingDoubleKeyFrame KeyTime="00:00:14" Value="-692"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:19.9000000" Value="-1278"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="roundedRectangle6" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)">
+                <EasingDoubleKeyFrame KeyTime="00:00:14" Value="389.028"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:19.9000000" Value="607.731"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="roundedRectangle7" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)">
+                <EasingDoubleKeyFrame KeyTime="00:00:14.1000000" Value="-910"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:19.9000000" Value="-1082"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="roundedRectangle7" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)">
+                <EasingDoubleKeyFrame KeyTime="00:00:14.1000000" Value="-12"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:19.9000000" Value="32"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="roundedRectangle7" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)">
+                <EasingDoubleKeyFrame KeyTime="00:00:14.1000000" Value="723.735"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:19.9000000" Value="1024.032"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="350"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+       
+
+        <!--Left Section-->
+        <Canvas Panel.ZIndex="-2">
+
+ 
+            <Border x:Name="border"  Padding="30" CornerRadius="0 0 0 0" RenderTransformOrigin="0.5,0.5" Height="650" Width="350" >
+                <Border.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Border.RenderTransform>
+                <Border.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="OrangeRed"/>
+                        <GradientStop Color="#FFFFDE00" Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+
+                 
+            <StackPanel VerticalAlignment="Center" x:Name="mainsackpanel" >
+            <Image Source="/Images/img.png" Margin="0 0 0 40" Width="160" Height="160" Panel.ZIndex="5"/>
+
+            <TextBlock x:Name="textBlock1" TextAlignment="Center" FontWeight="SemiBold" FontSize="28" Text="Авторизация" Foreground="#363636" Panel.ZIndex="5"/>
+            <TextBlock x:Name="textBlock" TextWrapping="Wrap" FontSize="16" TextAlignment="Center" Margin="0 20 0 20" Foreground="#363636" Text="Нету аккаунта?"/>
+
+            <Button x:Name="button" Style="{StaticResource buttonBlack}" RenderTransformOrigin="0.5,0.5"  Click="button_Click">
+                <Button.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Button.RenderTransform>
+                <fa:ImageAwesome Icon="AngleRight" Width="25" Height="25" Foreground="#FFD500" Margin="3 0 0 0"/>
+            </Button>
+        </StackPanel>
+
+            </Border>
+           
+
+            <Rectangle x:Name="roundedRectangle"
+                   Width="120"
+                   Height="120"
+                   Fill="#7FC3B9B9" 
+                RadiusX="10"
+                
+                RadiusY="10" Canvas.Left="288.234" Canvas.Top="903.401" RenderTransformOrigin="0.5,0.5"
+                
+                >
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-45"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+
+            <Rectangle x:Name="roundedRectangle2"
+       Width="58"
+       Height="58"
+       Fill="#7FC3B9B9" 
+    RadiusX="10"
+    
+    RadiusY="10" Canvas.Left="21" Canvas.Top="992.5" RenderTransformOrigin="0.5,0.5"
+    
+    >
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="30"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+
+            <Rectangle x:Name="roundedRectangle3"
+       Width="53"
+       Height="53"
+       Fill="#7FC3B9B9" 
+    RadiusX="10"
+    
+    RadiusY="10" Canvas.Left="221.082" Canvas.Top="774.585" RenderTransformOrigin="0.5,0.5"
+    
+    >
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="30"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+
+            <Rectangle x:Name="roundedRectangle4"
+       Width="110"
+       Height="110"
+       Fill="#7FC3B9B9" 
+    RadiusX="10"
+    
+    RadiusY="10" Canvas.Left="29.104" Canvas.Top="727.619" RenderTransformOrigin="0.5,0.5"
+    
+    >
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-20.925"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+
+            <Rectangle x:Name="roundedRectangle5"
+       Width="39"
+       Height="39"
+       Fill="#7FC3B9B9" 
+    RadiusX="10"
+    
+    RadiusY="10" Canvas.Left="316.724" Canvas.Top="772.366" RenderTransformOrigin="0.5,0.5"
+    
+    >
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="30"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+
+            <Rectangle x:Name="roundedRectangle6"
+       Width="77"
+       Height="77"
+       Fill="#7FC3B9B9" 
+    RadiusX="9"
+    
+    RadiusY="9" Canvas.Left="152.33" Canvas.Top="1009.586" RenderTransformOrigin="0.5,0.5"
+    
+    >
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="42.248"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+
+            <Rectangle x:Name="roundedRectangle7"
+       Width="25"
+       Height="25"
+       Fill="#7FC3B9B9" 
+    RadiusX="10"
+    
+    RadiusY="10" Canvas.Left="161.891" Canvas.Top="945.22" RenderTransformOrigin="0.5,0.5"
+    
+    >
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="19.574"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+        </Canvas>
+        <!--Input Section-->
+        <Border x:Name="border1" Grid.Column="1" Padding="20" MouseDown="Border_MouseDown" Background="#ffffff" CornerRadius="0 0 0 0" RenderTransformOrigin="0.5,0.5">
+            <Border.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Border.RenderTransform>
+
+
+            <Grid>
+                <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" Margin="50 10 50 10">
+
+                </Frame>
+                <Image Source="/Images/close.png" Width="25" Margin="0 4 5 0" Style="{StaticResource iconApp}" MouseLeftButtonDown="Image_MouseLeftButtonDown"/>
+                <Image Source="/Images/minimize.png" Width="20" Margin="0 7 40 0" Style="{StaticResource iconApp}"/>
+
+            </Grid>
+
+        </Border>
+    </Grid>
+
+</Window>

@@ -1,0 +1,103 @@
+﻿<Page x:Class="Register_Page.PageFolder.AdminEditPageFolder.EditWorkerPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Register_Page.PageFolder.AdminEditPageFolder"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+                        mc:Ignorable="d" 
+      d:DesignHeight="520" d:DesignWidth="680"
+       >
+    <Border CornerRadius="30" Background="White" Grid.ColumnSpan="2" >
+
+        <Grid x:Name="MyGrid" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="7*"/>
+                <RowDefinition Height="21*"/>
+                <RowDefinition Height="9*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!--Close Icon-->
+            <StackPanel Panel.ZIndex="3" Grid.ColumnSpan="2" Orientation="Horizontal" VerticalAlignment="Center" Margin="10" >
+                <Image Source="/Images/img.png" Width="70" Height="70"  />
+
+
+            </StackPanel>
+            <TextBlock Text="Редактирование сотрудника" Style="{StaticResource MaterialDesignHeadline6TextBlock}" FontSize="32"   Panel.ZIndex="5"  Grid.ColumnSpan="3" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="165,0,0,0"/>
+
+
+            <!--Inputs-->
+            <StackPanel VerticalAlignment="Top" Margin="0,70,0,0"  Grid.Row="1" HorizontalAlignment="Center" Width="207" Height="245" Grid.RowSpan="2" >
+
+                <TextBox Name="ExpTB"  BorderThickness="0 0 0 1.5" BorderBrush="#C5C8CC" materialDesign:HintAssist.FloatingOffset="0,-18" materialDesign:HintAssist.Hint="Опыт"  Margin="0 5 0 10" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontSize="16"  materialDesign:TextFieldAssist.UnderlineBrush="Orange" materialDesign:HintAssist.Foreground="Orange" />
+
+                <TextBox Name="PasportTB"  BorderThickness="0 0 0 1.5" BorderBrush="#C5C8CC" materialDesign:HintAssist.FloatingOffset="0,-18" materialDesign:HintAssist.Hint="Паспорт"  Margin="0 5 0 10" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontSize="16"  materialDesign:TextFieldAssist.UnderlineBrush="Orange" materialDesign:HintAssist.Foreground="Orange" Text="{Binding Pasport}"/>
+
+
+                <StackPanel   >
+
+
+                </StackPanel>
+
+                <TextBox Name="NameTB" Text="{Binding Name}" BorderThickness="0 0 0 1.5" BorderBrush="#C5C8CC" materialDesign:HintAssist.FloatingOffset="0,-18" materialDesign:HintAssist.Hint="Имя"  Margin="0 5 0 10" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontSize="16"  materialDesign:TextFieldAssist.UnderlineBrush="Orange" materialDesign:HintAssist.Foreground="Orange"/>
+
+
+            </StackPanel>
+
+            <StackPanel VerticalAlignment="Top" Margin="0,70,0,0"  Grid.Row="1" HorizontalAlignment="Center" Width="226" Grid.Column="1" Grid.RowSpan="2" >
+
+                <ComboBox Style="{StaticResource MaterialDesignFloatingHintComboBox}" materialDesign:HintAssist.Hint="Гендер" Margin="0 5 0 10" FontSize="16" Name="GenderCb"
+                            ItemsSource="{Binding Gender}" DisplayMemberPath="GenderName"
+                SelectedValuePath="GenderId"
+                         SelectedValue="{Binding Path=GenderId}"/>
+                <ComboBox Style="{StaticResource MaterialDesignFloatingHintComboBox}" materialDesign:HintAssist.Hint="адрес" Margin="0 5 0 10" FontSize="16" Name="AdressCb"
+    ItemsSource="{Binding Adress}" DisplayMemberPath="{Binding Region.NameRegion}"
+     SelectedValuePath="IdAdress"
+        SelectedValue="{Binding Path=IdAdress}"/>
+
+                <StackPanel   >
+                    <TextBox Name="EmailTb" Text ="{Binding Email}"  BorderThickness="0 0 0 1.5" BorderBrush="#C5C8CC" materialDesign:HintAssist.FloatingOffset="0,-18" materialDesign:HintAssist.Hint="Почта" Margin="0 5 0 10"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontSize="16"  materialDesign:TextFieldAssist.UnderlineBrush="Orange" materialDesign:HintAssist.Foreground="Orange"/>
+
+
+                </StackPanel>
+
+
+
+            </StackPanel>
+
+            <StackPanel VerticalAlignment="Top" Margin="5,70,0,0"  Grid.Row="1" HorizontalAlignment="Left" Width="212" Grid.Column="2" Height="245" Grid.RowSpan="2" >
+
+                <TextBox Name="PhoneTb" Text="{Binding Phone}" BorderThickness="0 0 0 1.5" BorderBrush="#C5C8CC" materialDesign:HintAssist.FloatingOffset="0,-18" materialDesign:HintAssist.Hint="Телефон"  Margin="0 5 0 10" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontSize="16"  materialDesign:TextFieldAssist.UnderlineBrush="Orange" materialDesign:HintAssist.Foreground="Orange"/>
+
+                <TextBox Name="TherdNameTb" Text="{Binding Therdname}" BorderThickness="0 0 0 1.5" BorderBrush="#C5C8CC" materialDesign:HintAssist.FloatingOffset="0,-18" materialDesign:HintAssist.Hint="Отчество" Margin="0 5 0 10"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontSize="16"  materialDesign:TextFieldAssist.UnderlineBrush="Orange" materialDesign:HintAssist.Foreground="Orange"/>
+
+
+
+
+                <StackPanel   >
+                    <TextBox Name="SurnameTb" Text="{Binding Surname}" BorderThickness="0 0 0 1.5" BorderBrush="#C5C8CC" materialDesign:HintAssist.FloatingOffset="0,-18" materialDesign:HintAssist.Hint="Фамилия" Margin="0 5 0 10"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontSize="16"  materialDesign:TextFieldAssist.UnderlineBrush="Orange" materialDesign:HintAssist.Foreground="Orange"/>
+
+
+                </StackPanel>
+
+
+
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="2" Width="162" Grid.Column="1" Margin="0,10,0,0">
+                <Button Content="Редактировать" Background="#FFFFD500"  Foreground="#ffffff" FontSize="18" materialDesign:ButtonAssist.CornerRadius="22" Height="45" Width="162" BorderBrush="#FFF3CD1C" Click="Button_Click"/>
+            </StackPanel>
+
+            <Border Grid.ColumnSpan="3" Background="#FFFFD500" CornerRadius="30 30 0 0">
+
+
+            </Border>
+
+        </Grid>
+    </Border>
+</Page>

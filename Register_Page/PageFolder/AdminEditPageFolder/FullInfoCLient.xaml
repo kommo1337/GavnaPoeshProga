@@ -1,0 +1,81 @@
+﻿<Window x:Class="Register_Page.PageFolder.AdminEditPageFolder.FullInfoCLient"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Register_Page.PageFolder.AdminEditPageFolder"
+               xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="Rounded Corners Window" Height="400" Width="600"
+        WindowStyle="None" AllowsTransparency="True" Background="Transparent"
+        ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Border Background="White" CornerRadius="20"  BorderThickness="2">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <!-- Заголовок окна -->
+                <Border Grid.Row="0" Background="Orange" Height="30" CornerRadius="19 19 0 0">
+                    <TextBlock Text="Полная информация о клиенте" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                </Border>
+
+                <!-- Содержимое окна -->
+                <Grid Grid.Row="1" Margin="10 40 10 10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="50"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Подписи и текстовые блоки -->
+                    <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Vertical">
+                        <TextBlock Text="Имя:" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                        <TextBlock Text="{Binding Name}" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Vertical">
+                        <TextBlock Text="Фамилия:" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                        <TextBlock Text="{Binding Surname}" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="0" Grid.Column="2" Orientation="Vertical">
+                        <TextBlock Text="Отчество" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                        <TextBlock Text="{Binding Therdname}" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Vertical">
+                        <TextBlock Text="Телефон" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                        <TextBlock Text="{Binding Phone}" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                    </StackPanel>
+
+
+
+                    <StackPanel Grid.Row="2" Grid.Column="0" Orientation="Vertical">
+                        <TextBlock Text="Адрес" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                        <TextBlock Text="{Binding Adress}" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="1" Grid.Column="2" Orientation="Vertical">
+                        <TextBlock Text="Гендер" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                        <TextBlock Text="{Binding Gender.GenderName}" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Vertical">
+                        <TextBlock Text="Почта" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                        <TextBlock Text="{Binding Email}" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                    </StackPanel>
+
+                </Grid>
+            </Grid>
+        </Border>
+        <Button Content="Назад" HorizontalAlignment="Center" Margin="0,307,0,0" VerticalAlignment="Top" Width="126" Click="Button_Click" />
+    </Grid>
+</Window>

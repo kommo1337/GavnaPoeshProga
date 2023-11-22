@@ -1,0 +1,76 @@
+﻿<Page x:Class="Register_Page.PageFolder.AdminAddPageFolder.AddZakazPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Register_Page.PageFolder.AdminAddPageFolder"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
+
+      mc:Ignorable="d" 
+      d:DesignHeight="520" d:DesignWidth="680"
+       >
+    <Border CornerRadius="30" Background="White" Grid.ColumnSpan="2" >
+
+        <Grid x:Name="MyGrid" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="7*"/>
+                <RowDefinition Height="21*"/>
+                <RowDefinition Height="9*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!--Close Icon-->
+            <StackPanel Panel.ZIndex="3" Grid.ColumnSpan="2" Orientation="Horizontal" VerticalAlignment="Center" Margin="10" >
+                <Image Source="/Images/img.png" Width="70" Height="70"  />
+                
+                
+            </StackPanel>
+            <TextBlock Text="Добавление заказа" Style="{StaticResource MaterialDesignHeadline6TextBlock}" FontSize="32"   Panel.ZIndex="5"  Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+
+
+            <!--Inputs-->
+            <StackPanel VerticalAlignment="Top" Margin="15,15,15,0"  Grid.Row="1"  >
+
+                
+
+
+                <StackPanel Margin="0 10 0 5" Orientation="Horizontal" >
+                    <TextBlock Style="{StaticResource MaterialDesignBody2TextBlock}" Text="Дата начала работ" Foreground="#FF707070"/>
+                    <DatePicker Style="{StaticResource MaterialDesignDatePicker}" Margin="130 9 0 0" Name="BthPick"/>
+
+                </StackPanel>
+
+
+
+            </StackPanel>
+            <StackPanel Grid.Column="1" Margin="15,15,15,15" Grid.Row="1" >
+                <ComboBox Name="ClientCb" Style="{StaticResource MaterialDesignFloatingHintComboBox}" materialDesign:HintAssist.Hint="Клиент" Margin="0 27 0 0" FontSize="16"
+                          ItemsSource="{Binding Client}" DisplayMemberPath="Name"
+                        SelectedValuePath="ClientId"
+                            SelectedValue="{Binding Path=ClientId}"/>
+                <ComboBox Name="EmCb" Style="{StaticResource MaterialDesignFloatingHintComboBox}" materialDesign:HintAssist.Hint="Работник" Margin="0 27 0 0" FontSize="16"
+                            ItemsSource="{Binding Employee}" DisplayMemberPath="FirstNameEmployee"
+                        SelectedValuePath="IdEmployee"
+                            SelectedValue="{Binding Path=IdEmployee}"/>
+                <ComboBox Name="PricesCb" Style="{StaticResource MaterialDesignFloatingHintComboBox}" materialDesign:HintAssist.Hint="Цена" Margin="0 27 0 0" FontSize="16"
+                              ItemsSource="{Binding PriceList}" DisplayMemberPath="NamePosition"
+                                SelectedValuePath="IdPriceList"
+                                SelectedValue="{Binding Path=IdPriceList}"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Grid.ColumnSpan="2" Margin="290,0,0,0" Grid.Row="2" Width="120">
+                <Button Content="Добавить" Background="#FFFFD500"  Foreground="#ffffff" FontSize="18" materialDesign:ButtonAssist.CornerRadius="22" Height="45" Width="120" BorderBrush="#FFF3CD1C" Click="Button_Click"/>
+            </StackPanel>
+
+            <Border Grid.ColumnSpan="2" Background="#FFFFD500" CornerRadius="30 30 0 0">
+               
+                
+            </Border>
+
+        </Grid>
+    </Border>
+</Page>
